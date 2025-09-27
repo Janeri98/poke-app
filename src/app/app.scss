@@ -1,0 +1,21 @@
+.container {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: hsl(244, 66%, 25%);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f2f2f2;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 6px;
+  text-transform: capitalize;
+}

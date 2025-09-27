@@ -1,12 +1,23 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PokeService } from './poke.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,          // 👈 Standalone activado
+  imports: [CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
-export class App {
-  protected readonly title = signal('poke-app');
+export class AppComponent implements OnInit {
+
+  pokemons: any[] = [];
+
+  constructor(private pokeService: PokeService) {}
+
+  ngOnInit(): void {
+    this.pokeService.getPokemons().subscribe(data => {
+      this.pokemons = data.results;
+    });
+  }
 }
